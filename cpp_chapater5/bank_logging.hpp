@@ -10,15 +10,31 @@
 
 #include <cstdio>
 
+class FileLogger {
+public:
+    void log_transfer(long from, long to, double amount);
+};
+
 class ConsoleLogger {
 public:
     void log_transfer(long from, long to, double amount);
 };
 
+enum class LoggerType {
+    Console,
+    File
+};
+
 class Bank {
 public:
-    ConsoleLogger logger;
+    Bank();
+    void set_logger(LoggerType new_type);
     void make_transfer(long from, long to, double amount);
+    
+private:
+    LoggerType type;
+    ConsoleLogger consoleLogger;
+    FileLogger fileLogger;
 };
 
 #endif /* bank_logging_hpp */
