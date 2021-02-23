@@ -6,9 +6,14 @@
 //
 
 #include <iostream>
+#include <cstdio>
+#include "bank_logging.hpp"
 
 int main(int argc, const char * argv[]) {
-    // insert code here...
-    std::cout << "Hello, World!\n";
+    
+    Bank bank;
+    bank.make_transfer(1000, 2000, 49.95);
+    bank.make_transfer(2000, 4000, 20.00);
+    
     return 0;
 }
